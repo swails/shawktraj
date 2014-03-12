@@ -1,0 +1,39 @@
+#!/bin/sh
+
+error() {
+   echo $1
+   exit 1
+}
+
+cat << EOF
+                     ^\`.                     o
+     ^_              \\  \\                  o  o
+     \\ \\             {   \\                 o
+     {  \\           /     \`~~~--__
+     {   \\___----~~'              \`~~-_     ______          _____
+      \\                         /// a  \`~._(_||___)________/___
+      / /~~~~-, ,__.    ,      ///  __,,,,)      o  ______/    \\
+      \\/      \\/    \`~~~;   ,---~~-_\`~= \\ \\------o-'            \\
+                       /   /            / /
+                      '._.'           _/_/
+                                      ';|\\
+
+
+
+                           S H A W K T R A J
+
+
+
+EOF
+
+test -z `which cpptraj` && error "SHAWKTRAJ requires cpptraj to be present"
+
+
+cpptraj $@ | awk '/./ {mystr=$0; gsub(/CPPTRAJ/,"SHAWKTRAJ",mystr); print mystr}'
+
+
+cat << EOF
+
+Thank you for using S H A W K T R A J
+
+EOF
