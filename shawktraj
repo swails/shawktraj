@@ -29,8 +29,8 @@ EOF
 test -z `which cpptraj` && error "SHAWKTRAJ requires cpptraj to be present"
 
 
-cpptraj $@ --log shawktraj.log | \
-         awk '/./ {mystr=$0; gsub(/CPPTRAJ/,"SHAWKTRAJ",mystr); print mystr}'
+(cpptraj $@ --log shawktraj.log <&0 2>&1) | \
+         awk '/./ {mystr=$0; gsub(/CPPTRAJ/,"SHAWKTRAJ",mystr); gsub(/cpptraj/,"shawktraj",mystr); print mystr}'
 
 
 cat << EOF
