@@ -10,4 +10,4 @@ Known Bugs
 When writing to standard input, no cursor or text appears. This is unlikely to
 ever be fixed.
 
-The shawk and diver are both British.
+The shawk is from Boston.
